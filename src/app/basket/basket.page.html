@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> {{this.authService.user.getValue().email}} Basket</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="loadCart()" align="center">Load Your Cart !</ion-button>
+  <ion-list>
+    <ion-item *ngFor="let item of person.cart.cartItems">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-note>€{{item.price}}</ion-note>
+    </ion-item>
+  </ion-list>
+  <ion-item>Total: {{this.total}}</ion-item>
+  <ion-button (click)="writeHistory()">Checkout</ion-button>
+</ion-content>
