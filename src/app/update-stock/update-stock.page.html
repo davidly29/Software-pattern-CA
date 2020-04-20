@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>update-stock</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-input required type="text" placeholder="Item Name" [(ngModel)]="search"></ion-input>
+  </ion-item>
+  <ion-button (click)="find()">Search</ion-button>
+
+  <ion-list lines="full">
+    <ion-item>
+      <ion-input required type="text" placeholder="Name" [(ngModel)]="newStock.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required type="text" placeholder="Manufacture" [(ngModel)]="newStock.manufacture"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required type="number" placeholder="Price" [(ngModel)]="newStock.price"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required type="number" placeholder="Quantity" [(ngModel)]="newStock.quantity"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="updateStock()">Update</ion-button>
+</ion-content>
