@@ -5,7 +5,7 @@ export class SaveHistory implements UserInterface {
     }
 
     saveUser(userOrder): any {
-        this.firebase.addUser(userOrder).then(console.log);
+        this.firebase.addUserHistory(userOrder).then(console.log);
         return userOrder;
     }
 

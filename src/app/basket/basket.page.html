@@ -13,5 +13,16 @@
     </ion-item>
   </ion-list>
   <ion-item>Total: {{this.total}}</ion-item>
+  <ion-item>
+    <ion-input required type="text" placeholder="Shipping Address" [(ngModel)]="person.address"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Payment Type</ion-label>
+    <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="person.payment">
+      <ion-select-option value="visa">Visa</ion-select-option>
+      <ion-select-option value="paypal">Paypal</ion-select-option>
+      <ion-select-option value="cash">Cash</ion-select-option>
+    </ion-select>
+  </ion-item>
   <ion-button (click)="writeHistory()">Checkout</ion-button>
 </ion-content>
