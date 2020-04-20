@@ -1,20 +1,50 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Shopping App
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="viewBasket()">MyCart <ion-icon name="cart-outline"></ion-icon></ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large"></ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-slides [options]="sliderConfig" #ionSlides>
+    <ion-slide *ngFor="let item of allProducts">
+      <ion-card color="secondary">
+        <button *ngIf="isAdmin === true" align-items-end clear (click)="removeItem(item.id)">
+          <ion-icon float-right name="close-circle" class="xicon"></ion-icon>
+        </button>
+        <ion-card-header>
+          <ion-card-title align="center">
+            {{item.name}}
+          </ion-card-title>
+        </ion-card-header>
 
+        <ion-card-content padding-end="40px">
+          <div>{{item.manufacture}}</div>
+          <div>Price: €{{item.price}}</div>
+          <div>Stock: {{item.quantity}}</div>
+          <ion-button (click)="addToCart(item.id)">Add To Cart</ion-button>
+          <ion-button (click)="viewReviews(item.id)">Review</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  <ion-list>
+  <ion-item *ngFor="let rev of currentItemReview">
+    test{{rev.itemId}}
+  </ion-item>
+  </ion-list>
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-button (click)="populateProducts()" *ngIf="isAdmin === true">Add Stock</ion-button>
+    <ion-button *ngIf="isAdmin === true" (click)="goHistory()">View User History</ion-button>
+    <ion-button *ngIf="isAdmin === true" (click)="updateStock()">Update Stock</ion-button>
+   </div>
 </ion-content>

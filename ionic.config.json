@@ -1,5 +1,7 @@
 {
   "name": "software_pattern_CA",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
